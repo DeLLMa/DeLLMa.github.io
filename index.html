@@ -192,6 +192,24 @@ aims to perform optimal decision making under uncertainty.
 </p>
 
 <p>
+DeLLMa consists of four main steps:
+<ol>
+    <li>Identify relevant <i>unknown states</i> based on the problem description and user goals.</li>
+    <li>Forecast the values of the unknown states given in-context information.</li>
+    <li>Elicit a <i>utility function</i> that aligns with the user’s goals.</li>
+    <li>Use this utility function to identify the decision that maximizes <i>expected utility</i>.</li>
+</ol>
+</p>
+
+<p>
+We show the full DeLLMa algorithm in the box below.
+</p>
+<img src="./static/images/dellma-algorithm.png" alt="DeLLMa Algorithm" width="950">
+
+
+<h3 class="title is-3 has-text-centered">Results</h3>
+
+<p>
 We illustrate DeLLMa below on two decision-making environments involving agriculture and
 stocks data.
 </p>
