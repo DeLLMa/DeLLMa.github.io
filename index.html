@@ -129,12 +129,7 @@
                   <span>Code</span>
                   </a>
               </span>
-
-
             </div>
-
-                          
-
           </div>
         </div>
       </div>
@@ -146,13 +141,13 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <h2 class="subtitle has-text-centered">
+      <h2 class="subtitle has-text-centered" style="max-width:870px;">
         Classical decision theory has helped humans make rational decisions for decades. Can it do the same for Large Language Models (LLMs)?
         <span class="dnerf" style="color: rgb(153, 27, 30);">DeLLMa</span> (pronouced dilemma) is a Decision-making Large Language Model assistant, utilizing the power of <span style="color: red;"><b>Large Language Models (GPT-4)</b></span> and <span style="color: red;"><b>Classical Decision Theory</b></span> to help LLMs make decisions under uncertainty.
       </h2>
       <div style="text-align: center;"><br/>
       <img src="./static/images/dellma-overview-horizontal.png" alt="dellma teaser"
-      width="950" class="center">
+      width="800" class="center">
       </div>
     </div>
   </div>
@@ -210,25 +205,42 @@ We show the full DeLLMa algorithm in the box below.
 <h3 class="title is-3 has-text-centered">Results</h3>
 
 <p>
-We illustrate DeLLMa below on two decision-making environments involving agriculture and
-stocks data.
+We illustrate DeLLMa below on two decision making under uncertainty problems:
+agricultural planning (<b>Agriculture</b>) and finance investing (<b>Stocks</b>).
+Both problems involve sizable degrees of uncertainty from diverse sources, and are
+representative of different data modalities (natural language and tabular) involved in
+decision making
 </p>
-<br/>
+
+<p>
+First, we show results on the Agriculture environment.  We collect bi-annual reports
+published by the United States Department of Agriculture (USDA) that provide analysis of
+supply-and-demand conditions in the U.S. fruit markets. To emulate real-life farming
+timelines, we use the report published in September 2021 as context for planning the
+forthcoming agricultural year. We additionally supplement these natural language
+contexts with USDA issued price and yield statistics in California.
+</p>
+
+<p>
+We define the utility of planting a fruit as its price × yield reported in the
+forthcoming year. We identify 7 fruits — apple, avocado, grape, grapefruit, lemon,
+peach, and pear— that are both studied in the September 2021 report, and endowed with
+these statistics in 2021 and 2022. We create decision making problems by enumerating all
+possible combinations of availble fruits, resulting in 120 instances. For each
+decision-making instance, we use related sections of the USDA report and current-year
+price and yield statistics as context.
+In the figure below, we show that all DeLLMa variants outperform baseline methods;
+DeLLMa-Pairs is the best, followed by Top1 and Naive. This result implies that the full
+ranking of state-action pairs is useful for utility elicitation here.
+</p>
 
 <img src="./static/images/scores_agriculture_acc.png" alt="agriculture scores" width="950">
 
 <p>
-Results on the Agriculture environment. We show that all DeLLMa variants outperform
-baseline methods; DeLLMa-Pairs is the best, followed by Top1 and Naive. This result
-implies that the full ranking of state-action pairs is useful for utility elicitation
-here.
+Next, results on the Stocks environment. We show that on average, DeLLMa-Top1 outperforms all baselines. DeLLMa-Pairs is slightly worse than its Top1 counterpart, meaning that ranking state-action pairs is still a challenging task.
 </p>
 
 <img src="./static/images/scores_stock_acc.png" alt="stock scores" width="950">
-
-<p>
-Results on the Stocks environment. We show that on average, DeLLMa-Top1 outperforms all baselines. DeLLMa-Pairs is slightly worse than its Top1 counterpart, meaning that ranking state-action pairs is still a challenging task.
-</p>
 
         </div>
       </div>
