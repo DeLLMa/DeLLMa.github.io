@@ -1,6 +1,14 @@
 # DeLLMa.github.io
 
-Anyone have a favored website template/format?
+This is the official website for [DeLLMa: A Framework for Decision Making Under Uncertainty with Large Language Models](https://arxiv.org/abs/2402.02392).
 
-PS I've made the repo private for now, though we'll need to make it public in order to
-publish the github pages website!
+```bibtex
+@misc{liu2024dellma,
+      title={{D}e{L}{L}{M}a: {A} {F}ramework for {D}ecision {M}aking {U}nder {U}ncertainty with {L}arge {L}anguage {M}odels}, 
+      author={Ollie Liu$^*$ and Deqing Fu$^*$ and Dani Yogatama and Willie Neiswanger},
+      year={2024},
+      eprint={2402.02392},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI}
+}
+```
