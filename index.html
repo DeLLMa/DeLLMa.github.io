@@ -197,16 +197,30 @@ DeLLMa consists of four main steps:
 </p>
 
 <p>
-We show the full DeLLMa algorithm in the box below.
+We show the full DeLLMa algorithm below:
 </p>
+
+<p>
 <img src="./static/images/dellma-algorithm.png" alt="DeLLMa Algorithm" width="950">
+</p>
+
+<p>
+We can illustrate the decision tree used internally by DeLLMa for decision making under
+uncertainty. In the following figure, we show this decision tree for our agriculture
+planning environment (described below). DeLLMa uses these types of decision trees to
+compute and maximize the expected utility of each available action.
+</p>
+
+<p>
+<img src="./static/images/decision-tree.png" alt="agriculture decision tree" width="950">
+</p>
 
 
 <h3 class="title is-3 has-text-centered">Results</h3>
 
 <p>
 We illustrate DeLLMa below on two decision making under uncertainty problems:
-agricultural planning (<b>Agriculture</b>) and finance investing (<b>Stocks</b>).
+agriculture planning (<b>Agriculture</b>) and finance investing (<b>Stocks</b>).
 Both problems involve sizable degrees of uncertainty from diverse sources, and are
 representative of different data modalities (natural language and tabular) involved in
 decision making
