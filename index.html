@@ -213,7 +213,7 @@ decision making
 </p>
 
 <p>
-First, we show results on the Agriculture environment.  We collect bi-annual reports
+First, we show results on the Agriculture environment. We collect bi-annual reports
 published by the United States Department of Agriculture (USDA) that provide analysis of
 supply-and-demand conditions in the U.S. fruit markets. To emulate real-life farming
 timelines, we use the report published in September 2021 as context for planning the
@@ -226,18 +226,32 @@ We define the utility of planting a fruit as its price × yield reported in the
 forthcoming year. We identify 7 fruits — apple, avocado, grape, grapefruit, lemon,
 peach, and pear— that are both studied in the September 2021 report, and endowed with
 these statistics in 2021 and 2022. We create decision making problems by enumerating all
-possible combinations of availble fruits, resulting in 120 instances. For each
-decision-making instance, we use related sections of the USDA report and current-year
-price and yield statistics as context.
-In the figure below, we show that all DeLLMa variants outperform baseline methods;
-DeLLMa-Pairs is the best, followed by Top1 and Naive. This result implies that the full
-ranking of state-action pairs is useful for utility elicitation here.
+possible combinations of availble fruits. For each decision-making instance, we use
+related sections of the USDA report and current-year price and yield statistics as
+context.  In the figure below, we show that all DeLLMa variants outperform baseline
+methods; DeLLMa-Pairs is the best, followed by Top1 and Naive. This result implies that
+the full ranking of state-action pairs is useful for utility elicitation.
 </p>
 
 <img src="./static/images/scores_agriculture_acc.png" alt="agriculture scores" width="950">
 
 <p>
-Next, results on the Stocks environment. We show that on average, DeLLMa-Top1 outperforms all baselines. DeLLMa-Pairs is slightly worse than its Top1 counterpart, meaning that ranking state-action pairs is still a challenging task.
+Next, results on the Stocks environment. The action space A is limited to combinations
+of 7 stocks: AMD, DIS, GME, GOOGL, META, NVDA and SPY. Unlike agriculture data where the
+context C are collected through USDA reports, we collect historical stock prices as the
+context for this problem. Each stock is presented with 24 monthly price in history. In
+preventing possible data leakage and promoting LLMs to use their common-sense knowledge
+in making decisions, when using gpt4-1106-preview as the LLM checkpoint, historical
+price between December 2021 to November 2023 are provided as the context C. These
+historical monthly prices are collected via Yahoo Finance by the authors.
+</p>
+
+<p>
+The goal of the LLM agent is to choose which stock to invest on 2023-12-01 and sell on
+the last trading day of that month (2023-12-29) so that the return is maximized. In the
+figure below, we show that on average, DeLLMa-Top1 outperforms all baselines.
+DeLLMa-Pairs is slightly worse than its Top1 counterpart, meaning that ranking
+state-action pairs is still a challenging task.
 </p>
 
 <img src="./static/images/scores_stock_acc.png" alt="stock scores" width="950">
